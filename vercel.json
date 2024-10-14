@@ -8,10 +8,7 @@
       }
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "scripts": {
+    "install": "npm install --legacy-peer-deps"
+  }
 }
