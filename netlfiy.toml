@@ -1,8 +1,0 @@
-[build]
-  command = "npx nx build angular-app --prod"
-  publish = "dist/apps/angular-app"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
