@@ -7,13 +7,6 @@
       "config": {
         "distDir": "dist/apps/angular-app"
       }
-    },
-    {
-      "src": "apps/react-app/**",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist/apps/react-app"
-      }
     }
   ],
   "routes": [
