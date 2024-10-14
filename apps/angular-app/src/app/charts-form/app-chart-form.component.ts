@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { IChartData } from '@libs/components/ReactDataVisualizer/react-visualizer';
 
 @Component({
   selector: 'app-chart-form',
@@ -17,6 +18,10 @@ import {
 export class AppChartFormComponent {
   chartForm: FormGroup;
 
+  showResetBtn = false;
+
+  initialData: IChartData = { aspectRatio: '', color: '' };
+
   @Output() chartDataEmitter = new EventEmitter<{
     aspectRatio: string;
     color: string;
@@ -24,8 +29,14 @@ export class AppChartFormComponent {
 
   constructor(private fb: FormBuilder) {
     this.chartForm = this.fb.group({
-      aspectRatio: ['', [Validators.required, this.aspectRatioValidator]],
-      color: ['', [Validators.required, Validators.pattern(/^#[0-9A-F]{6}$/i)]],
+      aspectRatio: [
+        this.initialData.aspectRatio,
+        [Validators.required, this.aspectRatioValidator],
+      ],
+      color: [
+        this.initialData.color,
+        [Validators.required, Validators.pattern(/^#[0-9A-F]{6}$/i)],
+      ],
     });
   }
 
@@ -38,13 +49,23 @@ export class AppChartFormComponent {
 
   onSubmit() {
     if (this.chartForm.valid) {
-      const { aspectRatio, color } = this.chartForm.value; 
+      const { aspectRatio, color } = this.chartForm.value;
       this.chartDataEmitter.emit({
         aspectRatio,
         color,
       });
+
+      this.showResetBtn = true;
     } else {
-      alert('Invalid form');
+      alert('Invalid form data.');
     }
+  }
+
+  onReset() {
+    this.chartForm.reset();
+
+    this.chartDataEmitter.emit(this.initialData);
+
+    this.showResetBtn = false;
   }
 }

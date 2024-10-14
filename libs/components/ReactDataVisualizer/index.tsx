@@ -14,7 +14,8 @@ export interface IReactDataVisualizer {
 }
 
 const ReactDataVisualizer: React.FC<IReactDataVisualizer> = ({
-  aspect = 5 / 3,
+  aspect = 16 / 9,
+  color = '#8884d8',
 }) => {
   const data = [
     { name: 'January', Total: 1200 },
@@ -35,8 +36,8 @@ const ReactDataVisualizer: React.FC<IReactDataVisualizer> = ({
       >
         <defs>
           <linearGradient id="total" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+            <stop offset="5%" stopColor={color} stopOpacity={0.8} />
+            <stop offset="95%" stopColor={color} stopOpacity={0} />
           </linearGradient>
         </defs>
         <XAxis dataKey="name" stroke="gray" />
@@ -45,7 +46,7 @@ const ReactDataVisualizer: React.FC<IReactDataVisualizer> = ({
         <Area
           type="monotone"
           dataKey="Total"
-          stroke="#8884d8"
+          stroke={color}
           fillOpacity={1}
           fill="url(#total)"
         />

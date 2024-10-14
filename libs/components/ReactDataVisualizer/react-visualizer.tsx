@@ -26,10 +26,13 @@ export class ReactVisualizerELem extends HTMLElement {
   set chartData(data: IChartData) {
     const [first, last] = data.aspectRatio.trim().split('/');
 
-    this._chartData = {
-      color: data.color,
-      aspect: Number(first) / Number(last),
-    };
+    const props: IReactDataVisualizer = {};
+
+    if (first && last) props.aspect = Number(first) / Number(last);
+
+    if (data.color) props.color = data.color;
+
+    this._chartData = props;
 
     this.mountReactApp();
   }
