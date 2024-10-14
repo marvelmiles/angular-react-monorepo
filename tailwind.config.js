@@ -5,7 +5,7 @@ module.exports = {
     './libs/**/*.{html,ts,tsx,jsx}', // If you use shared components in libraries
   ],
   presets: [],
-  darkMode: 'media', // or 'class'
+  darkMode: 'class',
   theme: {
     accentColor: ({ theme }) => ({
       ...theme('colors'),

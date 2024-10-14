@@ -4,7 +4,7 @@ import ReactDOM, { Root } from 'react-dom/client';
 import ReactDataVisualizer from '.';
 
 export class ReactVisualizerELem extends HTMLElement {
-  public mountPoint: HTMLDivElement | null = null;
+  public mountPoint: HTMLElement | null = null;
 
   public static observedAttributes = ['creator'];
 
@@ -25,13 +25,15 @@ export class ReactVisualizerELem extends HTMLElement {
   }
   mountReactApp(creator: string) {
     if (!this.mountPoint) {
-      this.mountPoint = document.createElement('div');
+      // this.mountPoint = document.createElement('div');
 
-      if (this.shadowRoot) this.shadowRoot.appendChild(this.mountPoint);
+      this.mountPoint = document.getElementById('root') as HTMLElement;
+
+      // if (this.shadowRoot) this.shadowRoot.appendChild(this.mountPoint);
 
       this.rootDom = ReactDOM.createRoot(this.mountPoint);
 
-      this.rootDom.render(<ReactDataVisualizer creator={creator} />);
+      this.rootDom.render(<ReactDataVisualizer />);
     }
   }
 }
