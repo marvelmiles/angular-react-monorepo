@@ -12,7 +12,7 @@ This project demonstrates the seamless integration of Angular and React componen
 
 ### Architecture
 
-- Angular: Handles routing, form inputs, and dark mode state management.
+- Angular: Handles routing and form inputs.
 
 - React: Responsible for rendering data visualizations, making use of reusable components for dynamic updates.
 
