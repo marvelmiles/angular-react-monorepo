@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/apps/angular-app/(.*)",
+      "destination": "/apps/angular-app/$1"
+    }
+  ]
+}
