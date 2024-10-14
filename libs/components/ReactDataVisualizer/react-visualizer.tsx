@@ -22,7 +22,6 @@ export class ReactVisualizerELem extends HTMLElement {
     this.attachShadow({ mode: 'open' });
   }
 
-  // Setter for the chart data property
   set chartData(data: IChartData) {
     const [first, last] = data.aspectRatio.trim().split('/');
 

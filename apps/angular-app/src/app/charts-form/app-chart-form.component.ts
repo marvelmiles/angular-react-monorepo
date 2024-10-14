@@ -40,7 +40,6 @@ export class AppChartFormComponent {
     });
   }
 
-  // Custom validator for aspect ratio
   aspectRatioValidator(control: any) {
     const value = control.value;
     const aspectRatioPattern = /^\d+\/\d+$/;
