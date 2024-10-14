@@ -1,0 +1,59 @@
+<div class="p-6 w-full max-w-3xl mx-auto bg-white rounded-lg shadow-2xl my-6">
+  <h2 class="text-2xl font-semibold mb-4">Create a Chart</h2>
+  <form [formGroup]="chartForm" (ngSubmit)="onSubmit()" class="space-y-4">
+    <div>
+      <label for="aspectRatio" class="block text-sm font-medium text-gray-700"
+        >Aspect Ratio (e.g., 3/5):</label
+      >
+      <input
+        id="aspectRatio"
+        formControlName="aspectRatio"
+        class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300"
+        placeholder="Enter aspect ratio"
+      />
+      <div
+        *ngIf="
+          chartForm.get('aspectRatio')?.invalid &&
+          (chartForm.get('aspectRatio')?.touched ||
+            chartForm.get('aspectRatio')?.dirty)
+        "
+      >
+        <small
+          class="text-red-600"
+          *ngIf="chartForm.get('aspectRatio')?.errors?.['invalidAspectRatio']"
+          >Invalid aspect ratio format.</small
+        >
+      </div>
+    </div>
+    <div>
+      <label for="color" class="block text-sm font-medium text-gray-700"
+        >Color (hex format):</label
+      >
+      <input
+        id="color"
+        formControlName="color"
+        class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300"
+        placeholder="Enter hex color (e.g. #ff5733)"
+      />
+      <div
+        *ngIf="
+          chartForm.get('color')?.invalid &&
+          (chartForm.get('color')?.touched || chartForm.get('color')?.dirty)
+        "
+      >
+        <small
+          class="text-red-600"
+          *ngIf="chartForm.get('color')?.errors?.['pattern']"
+          >Invalid color format. Use #RRGGBB.</small
+        >
+      </div>
+    </div>
+    <button
+      type="submit"
+      [disabled]="chartForm.invalid"
+      class="w-full mt-4 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 disabled:bg-gray-300"
+    >
+      Submit
+    </button>
+  </form>
+</div>

@@ -16,10 +16,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@yourAlias/*": ["apps/your-app/src/*"], // For apps
-      "@libs/*": ["libs/*"], // For libs or shared folders
-      "@components/*": ["libs/components/src/*"], // Example for components in a shared library
-      "@services/*": ["apps/your-app/src/app/services/*"] // Example for services in a specific app
+      "@components/*": ["libs/components/src/*"],
+      "@libs/*": ["libs/*"],
+      "@services/*": ["apps/your-app/src/app/services/*"],
+      "@yourAlias/*": ["apps/your-app/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

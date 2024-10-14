@@ -10,6 +10,7 @@ import {
 
 export interface IReactDataVisualizer {
   aspect?: number;
+  color?: string;
 }
 
 const ReactDataVisualizer: React.FC<IReactDataVisualizer> = ({

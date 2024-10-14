@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM, { Root } from 'react-dom/client';
 
-import ReactDataVisualizer from '.';
+import ReactDataVisualizer, { IReactDataVisualizer } from '.';
+
+export interface IChartData {
+  aspectRatio: string;
+  color: string;
+}
 
 export class ReactVisualizerELem extends HTMLElement {
   public mountPoint: HTMLElement | null = null;
@@ -10,21 +15,34 @@ export class ReactVisualizerELem extends HTMLElement {
 
   private rootDom: Root | null = null;
 
+  private _chartData: IReactDataVisualizer | null = null;
+
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
   }
 
-  attributeChangedCallback() {
-    const creator: string = this.getAttribute('creator') as string;
+  // Setter for the chart data property
+  set chartData(data: IChartData) {
+    const [first, last] = data.aspectRatio.trim().split('/');
 
-    this.mountReactApp(creator);
+    this._chartData = {
+      color: data.color,
+      aspect: Number(first) / Number(last),
+    };
+
+    this.mountReactApp();
   }
+
+  connectedCallback() {
+    this.mountReactApp();
+  }
+
   disconnectedCallback() {
     if (this.rootDom) this.rootDom.unmount();
   }
-  mountReactApp(creator: string) {
-    if (!this.mountPoint) {
+  mountReactApp() {
+    if (!this.rootDom) {
       // this.mountPoint = document.createElement('div');
 
       this.mountPoint = document.getElementById('root') as HTMLElement;
@@ -32,9 +50,9 @@ export class ReactVisualizerELem extends HTMLElement {
       // if (this.shadowRoot) this.shadowRoot.appendChild(this.mountPoint);
 
       this.rootDom = ReactDOM.createRoot(this.mountPoint);
-
-      this.rootDom.render(<ReactDataVisualizer />);
     }
+
+    this.rootDom.render(<ReactDataVisualizer {...this._chartData} />);
   }
 }
 

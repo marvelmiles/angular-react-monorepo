@@ -1,13 +1,26 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-chart-form',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './app-chart-form.component.html',
-  styleUrls: ['./app-chart-form.component.css'],
+  styleUrl: './app-chart-form.component.css',
 })
-export class ChartComponent {
+export class AppChartFormComponent {
   chartForm: FormGroup;
+
+  @Output() chartDataEmitter = new EventEmitter<{
+    aspectRatio: string;
+    color: string;
+  }>();
 
   constructor(private fb: FormBuilder) {
     this.chartForm = this.fb.group({
@@ -25,12 +38,13 @@ export class ChartComponent {
 
   onSubmit() {
     if (this.chartForm.valid) {
-      const { aspectRatio, color } = this.chartForm.value;
-      console.log('Submitted Aspect Ratio:', aspectRatio, 'Color:', color);
-      // Handle form submission logic here
+      const { aspectRatio, color } = this.chartForm.value; 
+      this.chartDataEmitter.emit({
+        aspectRatio,
+        color,
+      });
     } else {
-      console.log('Form is invalid');
-      alert('Form is invalid. ');
+      alert('Invalid form');
     }
   }
 }

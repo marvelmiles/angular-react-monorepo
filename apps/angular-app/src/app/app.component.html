@@ -1,7 +1,11 @@
 <div class="p-4 mt-20">
   <p class="text-4xl text-black font-medium">Dynamic Charts</p>
- 
+
+  <app-chart-form
+    (chartDataEmitter)="onChartDataReceived($event)"
+  ></app-chart-form>
+
   <p id="root"></p>
-  <react-visualizer [attr.creator]="creator"></react-visualizer>
+  <react-visualizer #reactVisualizer></react-visualizer>
   <router-outlet></router-outlet>
 </div>

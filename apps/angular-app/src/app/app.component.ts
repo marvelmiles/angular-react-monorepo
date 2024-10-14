@@ -1,13 +1,17 @@
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
+  ElementRef,
+  ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AppChartFormComponent } from './charts-form/app-chart-form.component';
+import { IChartData } from '@libs/components/ReactDataVisualizer/react-visualizer';
 
 @Component({
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, AppChartFormComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -15,6 +19,10 @@ import { RouterModule } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
-  title = 'angular-app';
-  creator = 'Me';
+  @ViewChild('reactVisualizer', { static: true }) reactVisualizer!: ElementRef;
+
+  onChartDataReceived(data: IChartData) {
+    const visualizerElem = this.reactVisualizer.nativeElement as any;
+    visualizerElem.chartData = data;
+  }
 }
