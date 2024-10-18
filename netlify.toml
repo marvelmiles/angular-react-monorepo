@@ -1,0 +1,8 @@
+[build]
+  command = "nx build angular-app"
+  publish = "dist/apps/angular-app/browser"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
