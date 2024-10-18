@@ -6,6 +6,7 @@ import ReactDataVisualizer, { IReactDataVisualizer } from '.';
 export interface IChartData {
   aspectRatio: string;
   color: string;
+  separator?: string;
 }
 
 export class ReactVisualizerELem extends HTMLElement {
@@ -23,7 +24,7 @@ export class ReactVisualizerELem extends HTMLElement {
   }
 
   set chartData(data: IChartData) {
-    const [first, last] = data.aspectRatio.trim().split('/');
+    const [first, last] = data.aspectRatio.trim().split(data.separator || ':');
 
     const props: IReactDataVisualizer = {};
 

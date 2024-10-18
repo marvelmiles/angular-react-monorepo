@@ -3,7 +3,7 @@
   <form [formGroup]="chartForm" (ngSubmit)="onSubmit()" class="space-y-4">
     <div>
       <label for="aspectRatio" class="block text-sm font-medium text-gray-700"
-        >Aspect Ratio (e.g., 3/5):</label
+        >Aspect Ratio (e.g., 16:9):</label
       >
       <input
         id="aspectRatio"
@@ -48,7 +48,7 @@
         >
       </div>
     </div>
-    <div class="flex items-center justify-between gap-4">
+    <div class="flex flex-col w-full gap-4">
       <button
         [disabled]="chartForm.invalid"
         type="submit"

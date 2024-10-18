@@ -20,12 +20,9 @@ export class AppChartFormComponent {
 
   showResetBtn = false;
 
-  initialData: IChartData = { aspectRatio: '', color: '' };
+  initialData: IChartData = { aspectRatio: '16:9', color: '#8884d8' };
 
-  @Output() chartDataEmitter = new EventEmitter<{
-    aspectRatio: string;
-    color: string;
-  }>();
+  @Output() chartDataEmitter = new EventEmitter<IChartData>();
 
   constructor(private fb: FormBuilder) {
     this.chartForm = this.fb.group({
@@ -42,7 +39,7 @@ export class AppChartFormComponent {
 
   aspectRatioValidator(control: any) {
     const value = control.value;
-    const aspectRatioPattern = /^\d+\/\d+$/;
+    const aspectRatioPattern = /^\d+\:\d+$/;
     return aspectRatioPattern.test(value) ? null : { invalidAspectRatio: true };
   }
 
