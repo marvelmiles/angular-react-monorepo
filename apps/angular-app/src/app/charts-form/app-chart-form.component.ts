@@ -58,7 +58,7 @@ export class AppChartFormComponent {
   }
 
   onReset() {
-    this.chartForm.reset();
+    this.chartForm.reset(this.initialData);
 
     this.chartDataEmitter.emit(this.initialData);
 
