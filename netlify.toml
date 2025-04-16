@@ -2,6 +2,9 @@
   command = "nx build angular-app"
   publish = "dist/apps/angular-app/browser"
 
+[build.environment]
+  NPM_FLAGS = "--force"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
