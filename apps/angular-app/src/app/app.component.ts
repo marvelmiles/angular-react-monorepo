@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppChartFormComponent } from './charts-form/app-chart-form.component';
-import { IChartData } from '@libs/components/ReactDataVisualizer/react-visualizer';
+import { IChartData } from '@data-visualizer/react-visualizer';
 
 @Component({
   standalone: true,

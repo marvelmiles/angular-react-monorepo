@@ -17,6 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["libs/components/src/*"],
+      "@data-visualizer/react-visualizer": ["libs/src/index.ts"],
+      "@data-visualizer/shared-components": ["ll/src/index.ts"],
       "@libs/*": ["libs/*"],
       "@services/*": ["apps/your-app/src/app/services/*"],
       "@yourAlias/*": ["apps/your-app/src/*"]

@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM, { Root } from 'react-dom/client';
 
-import ReactDataVisualizer, { IReactDataVisualizer } from '.';
+import ReactDataVisualizer, {
+  IReactDataVisualizer,
+} from './ReactDataVisualizer';
 
 export interface IChartData {
   aspectRatio: string;
@@ -9,7 +11,7 @@ export interface IChartData {
   separator?: string;
 }
 
-export class ReactVisualizerELem extends HTMLElement {
+class ReactVisualizerELem extends HTMLElement {
   public mountPoint: HTMLElement | null = null;
 
   public static observedAttributes = ['creator'];

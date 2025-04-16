@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { IChartData } from '@libs/components/ReactDataVisualizer/react-visualizer';
+import { IChartData } from '@data-visualizer/react-visualizer';
 
 @Component({
   selector: 'app-chart-form',
