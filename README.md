@@ -14,8 +14,8 @@ To deploy nx for CI hosting, Add tasksRunnerOptions to specify that you want to 
 "options": {
 "cacheableOperations": ["build", "lint", "test"],
 "accessToken": "not-needed"
-}
-}
+    }
+  }
 }
 
 ```
