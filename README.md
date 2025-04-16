@@ -6,6 +6,8 @@ This project demonstrates the seamless integration of Angular and React componen
 
 To deploy nx for CI hosting, Add tasksRunnerOptions to specify that you want to use the local runner instead of the cloud runner. Remove the nxCloudId line.
 
+```sh
+
 "tasksRunnerOptions": {
 "default": {
 "runner": "nx/tasks-runners/default",
@@ -14,7 +16,9 @@ To deploy nx for CI hosting, Add tasksRunnerOptions to specify that you want to 
 "accessToken": "not-needed"
 }
 }
-},
+}
+
+```
 
 ### Features
 
