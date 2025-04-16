@@ -1,0 +1,14 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+
+[build]
+  command = "NX_SKIP_NX_CLOUD=true npx nx build angular-app --configuration=production"
+  publish = "dist/apps/angular-app/browser"
+
+[build.environment]
+  NODE_VERSION = "22" 
+  NPM_FLAGS = "--legacy-peer-deps --force --loglevel=error"
+  CI = "true"
