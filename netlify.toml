@@ -4,7 +4,7 @@
   status = 200
 
 [build]
-  command = "NX_SKIP_NX_CLOUD=true nx build angular-app --configuration=production"
+  command = "nx build angular-app --configuration=production"
   publish = "dist/apps/angular-app/browser"
 
 [build.environment] 
