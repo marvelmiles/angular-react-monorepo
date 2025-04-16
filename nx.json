@@ -14,15 +14,7 @@
     ],
     "sharedGlobals": []
   },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test"],
-        "accessToken": "not-needed"
-      }
-    }
-  },
+  "nxCloudId": "670ca623e0c4f77060336718",
   "targetDefaults": {
     "@angular-devkit/build-angular:application": {
       "cache": true,
