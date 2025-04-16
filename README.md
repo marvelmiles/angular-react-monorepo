@@ -2,6 +2,21 @@
 
 This project demonstrates the seamless integration of Angular and React components within a single monolithic app using the NX Monorepo tools. The primary goal is to leverage the power of both frameworks in a cohesive application that allows Angular to manage routing and state while React is responsible for handling dynamic data visualizations.
 
+### Note
+
+To deploy nx for CI hosting, Add tasksRunnerOptions to specify you want to use the local runner instead of the cloud runner.
+Remove the nxCloudId line.
+
+"tasksRunnerOptions": {
+"default": {
+"runner": "nx/tasks-runners/default",
+"options": {
+"cacheableOperations": ["build", "lint", "test"],
+"accessToken": "not-needed"
+}
+}
+},
+
 ### Features
 
 - Monorepo Architecture: Both Angular and React apps live in the same repository, using NX to manage their dependencies and build processes efficiently.
