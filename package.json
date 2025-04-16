@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "start:angular": "npx nx serve angular-app",
     "build": "nx build angular-app",
     "start": "nx serve angular-app"
   },
