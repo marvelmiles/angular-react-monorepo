@@ -2,7 +2,9 @@
 
 This project demonstrates the seamless integration of Angular and React components within a single monolithic app using the NX Monorepo tools. The primary goal is to leverage the power of both frameworks in a cohesive application that allows Angular to manage routing and state while React is responsible for handling dynamic data visualizations.
 
-### Note
+## Note
+
+### NX Build for production hosting
 
 To deploy nx for CI hosting, Add `tasksRunnerOptions` to specify that you want to use the local runner instead of the cloud runner, remove the nxCloudId line.
 
@@ -84,10 +86,22 @@ While you could add new projects to your workspace manually, you might want to l
 
 Use the plugin's generator to create new projects.
 
-To generate a new application, use:
+To create a new project, use:
 
 ```sh
-npx nx g @nx/angular:app demo
+npx create-nx-workspace@latest project-name
+```
+
+To add a new plugin (e.g react), use:
+
+```sh
+npx nx g @nx/[plugin_name]
+```
+
+To generate a new application, cd into apps and run:
+
+```sh
+npx nx g @nx/[plugin_name]:app app-name
 ```
 
 To generate a new library, use:
@@ -95,6 +109,10 @@ To generate a new library, use:
 ```sh
 npx nx g @nx/angular:lib mylib
 ```
+
+### Note
+
+Install nx console extension on your editor to run this commands easily.
 
 You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
 
