@@ -50,7 +50,17 @@ class ReactVisualizerELem extends HTMLElement {
     if (!this.rootDom) {
       // this.mountPoint = document.createElement('div');
 
-      this.mountPoint = document.getElementById('root') as HTMLElement;
+      this.mountPoint = document.getElementById('react-app') as HTMLElement;
+
+      if (!this.mountPoint) {
+        const div = document.createElement('div');
+
+        div.setAttribute('id', 'react-app');
+
+        document.body.appendChild(div);
+
+        this.mountPoint = div;
+      }
 
       // if (this.shadowRoot) this.shadowRoot.appendChild(this.mountPoint);
 
